@@ -37,11 +37,94 @@ You can provide short code segments inline below,
 or check in the code as separate files in your repository.
 
 ## Your solutions
+import csv
+import pandas as pd
+from sklearn import cluster, datasets
+from numpy import genfromtxt
+import matplotlib.pyplot as plt
+
+from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.pyplot as plt
+from matplotlib import cm
+from matplotlib.ticker import LinearLocator, FormatStrFormatter
+import numpy as np
+
+import numpy as np
+from mpl_toolkits.mplot3d import Axes3D
+
+import matplotlib.pyplot as plt
+import csv
+
+x = []
+y = []
+z = []
+
+csv1 = 'warm-up-data/data-set1.csv'
+csv2 = 'warm-up-data/data-set2.csv'
+csv3 = 'warm-up-data/data-set3.csv'
+csv4 = 'warm-up-data/data-set4.csv'
+
+with open(csv3, 'r') as csvfile:
+    plots = csv.reader(csvfile, delimiter=',')
+    for row in plots:
+        x.append((row[0]))
+        y.append((row[1]))
+        z.append((row[2]))
+
+plt.plot(x, y, label='Loaded from file!')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Interesting Graph\nCheck it out')
+plt.legend()
+plt.show()
+
+x_dim = np.array(x)
+y_dim = np.array(y)
+z_dim = np.array(z)
+
+fig = plt.figure()
+ax = fig.gca(projection='3d')
+surf = ax.plot_surface(x_dim, y_dim, z_dim, cmap=cm.coolwarm,
+                       linewidth=0, antialiased=False)
+fig.colorbar(surf, shrink=0.5, aspect=5)
+plt.show()
+
+
+
+#
+# fig = plt.figure()
+# ax1 = fig.add_subplot(111, projection='3d')
+#
+# x_dim = np.array(x)
+# y_dim = np.array(y)
+# z_dim = np.array(z)
+#
+# ax1.scatter(x_dim, y_dim, z_dim)
+# plt.show()
+
+# csv1 = pd.read_csv("warm-up-data/data-set1.csv")
+
+# clustering data
+# iris = datasets.load_iris()
+# X_iris = csvReader[0]
+# y_iris = csvReader[1]
+# k_means = cluster.KMeans(n_clusters=3)
+# k_means.fit(X_iris)
+# print(k_means.labels_[::10])
+# print(y_iris[::10])
+
+
+
+
+
 
 ### Data set 1
-
+It's a 3 classes data
 ### Data set 2
-
+It's 2 classes data
 ### Data set 3
-
+It's 3 surfaces data
 ### Data set 4
+
+
+
